@@ -30,6 +30,10 @@ public class PracticeTest {
                 score[2]++;
             }
         }
+
+        //5.
+        int max = Math.max(score[0], Math.max(score[1], score[2]));
+
         
     }
 }
