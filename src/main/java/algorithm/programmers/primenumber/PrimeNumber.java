@@ -1,4 +1,4 @@
-package algorithm.programmers;
+package algorithm.programmers.primenumber;
 
 /**
  * 프로그래머스 - 소수찾기
@@ -31,6 +31,13 @@ public class PrimeNumber {
         return true;
     }
 
+    public boolean isPrimeSplitinRoot (int n) {
+        for (int i=2; i <= Math.sqrt(n); i++) {
+            if(n % i == 0) return false;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         PrimeNumber primeNumber = new PrimeNumber();
 
@@ -39,6 +46,7 @@ public class PrimeNumber {
         System.out.println(primeNumber.isPrime(19));
         System.out.println(primeNumber.isPrime(23));
 
+        System.out.println(primeNumber.isPrimeSplitinHalf(13));
         System.out.println(primeNumber.isPrimeSplitinHalf(13));
     }
 }
