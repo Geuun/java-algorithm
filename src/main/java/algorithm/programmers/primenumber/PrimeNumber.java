@@ -1,7 +1,9 @@
 package algorithm.programmers.primenumber;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.List;
 
 /**
  * 프로그래머스 - 소수찾기
@@ -55,13 +57,23 @@ public class PrimeNumber {
         return answer;
     }
 
+    public int solution2(int n) {
+        int answer = 0;
+        n = 50;
+        List<Integer> arr = new ArrayList<>();
+
+        for (int i = 2; i <= n; i++) arr.add(i);
+
+        for (int i = 0; i < arr.size(); i++) {
+            if (arr.get(i) % 2 == 0 && arr.get(i) > 2) arr.remove(i);
+        }
+
+        return answer;
+    }
+
     public static void main(String[] args) {
         PrimeNumber primeNumber = new PrimeNumber();
 
-        primeNumber.solution(5);
-        System.out.println("========================");
-        primeNumber.solution(10);
-        System.out.println("========================");
-        primeNumber.solution(21);
+
     }
 }
