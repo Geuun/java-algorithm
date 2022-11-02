@@ -58,22 +58,24 @@ public class PrimeNumber {
     }
 
     public int solution2(int n) {
-        int answer = 0;
-        n = 50;
-        List<Integer> arr = new ArrayList<>();
+        List<Integer> nums = new ArrayList<>();
 
-        for (int i = 2; i <= n; i++) arr.add(i);
+        // 2 ~ 50채우기
+        for (int i = 2; i <= n; i++) nums.add(i);
 
-        for (int i = 0; i < arr.size(); i++) {
-            if (arr.get(i) % 2 == 0 && arr.get(i) > 2) arr.remove(i);
+        for (int j = 2; j * j <= n ; j++) {
+            // 2의 배수 지우기 2제외
+            for (int i = 0; i < nums.size(); i++) {
+                if (nums.get(i) % j == 0 && nums.get(i) > j) nums.remove(i);
+            }
         }
-
-        return answer;
+        return nums.size();
     }
+
 
     public static void main(String[] args) {
         PrimeNumber primeNumber = new PrimeNumber();
 
-
+        System.out.println(primeNumber.solution2(10));
     }
 }
