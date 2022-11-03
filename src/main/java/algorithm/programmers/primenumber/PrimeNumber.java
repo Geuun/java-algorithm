@@ -85,20 +85,21 @@ public class PrimeNumber {
     }
 
     public int solution3(int n) {
-        n = 50; // n = 50
         int[] nums = new int[n - 1]; // N-1개만큼 2~50까지 총 49개
         boolean[] checks = new boolean[nums.length]; // nums만큼 checks생성
         Arrays.fill(checks, true); // checks를 true로 초기화 cuz 기본값 false
         for (int i = 0; i < nums.length; i++) nums[i] = i + 2; // 2~50까지 nums에 채우기
 
         //Todo: checks를 참고해서 true인 nums[i]만 출력
+        // 2의 배수 지우기
+        int multipleOf = 2;
         System.out.print("[");
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 2; i < nums.length; i+= multipleOf) {
             if (checks[i] == true) {
                 System.out.print(nums[i] + " ");
             }
         }
-        System.out.print("]");
+        System.out.println("]");
 
         return n;
     }
@@ -112,6 +113,6 @@ public class PrimeNumber {
 //        System.out.println(Arrays.toString(boolArr));
 //        primeNumber.solution2(10);
 //        primeNumber.solution2(5);
-        primeNumber.solution3(10);
+        primeNumber.solution3(50);
     }
 }
