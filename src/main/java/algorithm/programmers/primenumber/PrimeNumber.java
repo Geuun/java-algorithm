@@ -79,9 +79,21 @@ public class PrimeNumber {
         for (int i = 0; i <= n; i++) {
             System.out.println("i :" + i);
             if (boolArr[i] == false) answer += 1;
-            System.out.println("answer: " +answer);
+            System.out.println("answer: " + answer);
         }
         return answer;
+    }
+
+    public int solution3(int n) {
+        n = 50; // n = 50
+        int[] nums = new int[n - 1]; // N-1개만큼 2~50까지 총 49개
+        boolean[] checks = new boolean[nums.length]; // nums만큼 checks생성
+        Arrays.fill(checks, true); // checks를 true로 초기화 cuz 기본값 false
+        for (int i = 0; i < nums.length; i++) nums[i] = i + 2; // 2~50까지 nums에 채우기
+
+        //Todo: checks를 참고해서 true인 nums[i]만 출력
+
+        return n;
     }
 
 
