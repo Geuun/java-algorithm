@@ -47,7 +47,7 @@ public class PrimeNumber {
         }// 2부터 n 까지의 수를 배열에 담기
         for (int i = 2; i * i < n; i++) {
             if (arr[i] == 0) continue; // 이미 0으로 바뀐 인덱스는 넘어간다.
-            for (int j= i * i ; j<n+1; j+=i) arr[j] = 0;
+            for (int j = i * i; j < n + 1; j += i) arr[j] = 0;
         }// 소수의 배수들을 배열에서 0으로 변경 but 이미 0이라면 continue한다.
 
         for (int i = 0; i < arr.length; i++) {
@@ -58,24 +58,38 @@ public class PrimeNumber {
     }
 
     public int solution2(int n) {
-        List<Integer> nums = new ArrayList<>();
+        int answer = 0;
+        int[] arr = new int[n + 1];
+        boolean[] boolArr = new boolean[n + 1]; // bool 형의 Array를 만듬
+//        System.out.println(Arrays.toString(boolArr));
+        /**
+         * bool 형의 Array는 기본적으로 false를 채우므로
+         * 소수라면 false로 출력시켜 연산을 줄여보자
+         * 소수 : false
+         * 이외의 수 : true
+         */
+        boolArr[0] = boolArr[1] = true; // 0, 1 은 소수에서 제외
 
-        // 2 ~ 50채우기
-        for (int i = 2; i <= n; i++) nums.add(i);
-
-        for (int j = 2; j * j <= n ; j++) {
-            // 2의 배수 지우기 2제외
-            for (int i = 0; i < nums.size(); i++) {
-                if (nums.get(i) % j == 0 && nums.get(i) > j) nums.remove(i);
+        for (int i = 2; i * i <= n; i++) {
+            for (int j = i * i; j <= n; j += i) {
+                boolArr[j] = true;        //2를 제외한 2의 배수 true
             }
         }
-        return nums.size();
+
+        for (int i = 0; i <= n; i++) {
+            if (boolArr[i] == false) answer += 1;
+        }
+        return answer;
     }
 
 
     public static void main(String[] args) {
         PrimeNumber primeNumber = new PrimeNumber();
 
-        System.out.println(primeNumber.solution2(10));
+        int n = 10;
+        boolean[] boolArr = new boolean[n + 1];
+        System.out.println(Arrays.toString(boolArr));
+
+        
     }
 }
