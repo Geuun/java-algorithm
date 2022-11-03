@@ -77,7 +77,9 @@ public class PrimeNumber {
         }
 
         for (int i = 0; i <= n; i++) {
+            System.out.println("i :" + i);
             if (boolArr[i] == false) answer += 1;
+            System.out.println("answer: " +answer);
         }
         return answer;
     }
@@ -89,7 +91,8 @@ public class PrimeNumber {
         int n = 10;
         boolean[] boolArr = new boolean[n + 1];
         System.out.println(Arrays.toString(boolArr));
+        primeNumber.solution2(10);
+        primeNumber.solution2(5);
 
-        
     }
 }
