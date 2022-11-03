@@ -92,6 +92,13 @@ public class PrimeNumber {
         for (int i = 0; i < nums.length; i++) nums[i] = i + 2; // 2~50까지 nums에 채우기
 
         //Todo: checks를 참고해서 true인 nums[i]만 출력
+        System.out.print("[");
+        for (int i = 0; i < nums.length; i++) {
+            if (checks[i] == true) {
+                System.out.print(nums[i] + " ");
+            }
+        }
+        System.out.print("]");
 
         return n;
     }
@@ -100,11 +107,11 @@ public class PrimeNumber {
     public static void main(String[] args) {
         PrimeNumber primeNumber = new PrimeNumber();
 
-        int n = 10;
-        boolean[] boolArr = new boolean[n + 1];
-        System.out.println(Arrays.toString(boolArr));
-        primeNumber.solution2(10);
-        primeNumber.solution2(5);
-
+//        int n = 10;
+//        boolean[] boolArr = new boolean[n + 1];
+//        System.out.println(Arrays.toString(boolArr));
+//        primeNumber.solution2(10);
+//        primeNumber.solution2(5);
+        primeNumber.solution3(10);
     }
 }
