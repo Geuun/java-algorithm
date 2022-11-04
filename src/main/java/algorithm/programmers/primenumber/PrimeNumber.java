@@ -89,19 +89,24 @@ public class PrimeNumber {
         boolean[] checks = new boolean[nums.length]; // nums만큼 checks생성
         Arrays.fill(checks, true); // checks를 true로 초기화 cuz 기본값 false
         for (int i = 0; i < nums.length; i++) nums[i] = i + 2; // 2~50까지 nums에 채우기
+        // checks = [ true, true, true,  ..., true, true, true]
+        // nums = [ 1, 2, 3, ...,  48, 49, 50]
 
         //Todo: checks를 참고해서 true인 nums[i]만 출력
-        // 2의 배수 지우기
-        int multipleOf = 2;
-        System.out.print("[");
-        for (int i = 2; i < nums.length; i+= multipleOf) {
-            if (checks[i] == true) {
-                System.out.print(nums[i] + " ");
+        // 2의 배수 지우기 -> 모든 수에 적용되게 n 으로 리펙토링
+        for (int i = 0; i * i <= n; i++) { // n == 49
+            int multipleOf = nums[i]; // i = 0 nums[0] = 2
+            // 초항이 2 2n 인 ex) 2 4 6 8 10 ...
+            for (int j = nums[i] + i; j < nums.length; j+=multipleOf) {
+                checks[j] = false;
             }
         }
-        System.out.println("]");
-
-        return n;
+        int cnt = 0;
+        for (int i = 0; i < checks.length; i++) {
+            if (checks[i] == true) cnt ++;
+        }
+        
+        return cnt;
     }
 
 
@@ -113,6 +118,6 @@ public class PrimeNumber {
 //        System.out.println(Arrays.toString(boolArr));
 //        primeNumber.solution2(10);
 //        primeNumber.solution2(5);
-        primeNumber.solution3(50);
+        System.out.println(primeNumber.solution3(50));
     }
 }
