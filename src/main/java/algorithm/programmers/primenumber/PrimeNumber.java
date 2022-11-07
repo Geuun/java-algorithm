@@ -105,7 +105,7 @@ public class PrimeNumber {
         for (int i = 0; i < checks.length; i++) {
             if (checks[i] == true) cnt ++;
         }
-        
+
         return cnt;
     }
 
