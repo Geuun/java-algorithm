@@ -33,7 +33,7 @@ public class aDivisiveNumber {
         }
 
         if(list.size() == 0) return new int[]{-1};
-        
+
         int[] answer = new int[list.size()];
         int idx = 0;
         while(!list.isEmpty()){
