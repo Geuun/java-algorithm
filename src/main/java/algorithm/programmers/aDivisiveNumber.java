@@ -1,6 +1,9 @@
 package algorithm.programmers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * 나누어 떨어지는 숫자 배열
@@ -9,19 +12,32 @@ import java.util.Arrays;
 public class aDivisiveNumber {
 
     public int[] solution(int[] arr, int divisor) {
-        int[] answer = {};
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % divisor == 0) list.add(arr[i]);
+        }
 
+        if(list.size() == 0) return new int[]{-1};
+
+        int[] answer = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            answer[i] = list.get(i);
+        }
+
+        Arrays.sort(answer);
         return answer;
     }
 
     public static void main(String[] args) {
         int[] arr = {5, 9, 7, 10};
-        int[] answer = new int[arr.length];
+        List<Integer> answer = new ArrayList<>();
         int divisor = 5;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % 5 == 0) answer[i] = arr[i];
+            if (arr[i] % divisor == 0) answer.add(arr[i]);
         }
-        System.out.println(Arrays.toString(answer));
-        // [5, 0, 0, 10]
+
+        Arrays.sort(answer.toArray());
+
+        System.out.println(answer);
     }
 }
