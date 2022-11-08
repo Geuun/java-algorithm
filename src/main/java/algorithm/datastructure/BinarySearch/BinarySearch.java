@@ -14,6 +14,8 @@ public class BinarySearch {
             startIdx = middleIdx + 1;
         } else if (nums[middleIdx] < targetNum) {
             endIdx = middleIdx - 1;
+        } else {
+            System.out.println(middleIdx);
         }
 
     }
