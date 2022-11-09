@@ -2,37 +2,24 @@ package algorithm.datastructure.selectionsort;
 
 import java.util.Arrays;
 
+interface StatementStrategy {
+    boolean apply(int a, int b);
+}
+
 public class SelectionSort {
-    public int[] SelectionSort(int[] nums) {
+    public int[] SelectionSort(int[] nums, StatementStrategy stmt) {
         for (int i = 0; i < nums.length - 1; i++) {
-            int minIdx = i;
-//            System.out.println("minIndx: " + minIdx);
+            int Idx = i;
             for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] < nums[minIdx]) {
-                    minIdx = j;
+                if (stmt.apply(nums[Idx], nums[j])) {
+                    Idx = j;
                 }
             }
 
             int temp = nums[i];
-            nums[i] = nums[minIdx];
-            nums[minIdx] = temp;
-        }
-        return nums;
-    }
-
-    public int[] SelectionSortDesc(int[] nums) {
-        for (int i = 0; i < nums.length - 1; i++) {
-            int minIdx = i;
-
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] > nums[minIdx]) {
-                    minIdx = j;
-                }
-            }
-
-            int temp = nums[i];
-            nums[i] = nums[minIdx];
-            nums[minIdx] = temp;
+            nums[i] = nums[Idx];
+            nums[Idx] = temp;
+            System.out.println(Arrays.toString(nums));
         }
         return nums;
     }
@@ -40,7 +27,7 @@ public class SelectionSort {
     public static void main(String[] args) {
         SelectionSort selectionSort = new SelectionSort();
         int[] nums = {2, 7, 4, 9, 10, 223, 111, 23, 3, 39};
-        System.out.println(Arrays.toString(selectionSort.SelectionSort(nums)));
-        System.out.println(Arrays.toString(selectionSort.SelectionSortDesc(nums)));
+        selectionSort.SelectionSort(nums, (a, b) -> a > b);
+        selectionSort.SelectionSort(nums, (a, b) -> a < b);
     }
 }
