@@ -12,10 +12,12 @@ public class IHateSameNum {
     public int[] solution(int[] arr) {
         int[] answer = {};
 
+        int compNum = -1; // 비교할 숫자
         List<Integer> nums = new ArrayList<Integer>();
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != arr[i - 1]) {
+            if (arr[i] != compNum) {
                 nums.add(arr[i]);
+                compNum = arr[i];
             }
         }
 
