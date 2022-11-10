@@ -10,7 +10,6 @@ import java.util.List;
  */
 public class IHateSameNum {
     public int[] solution(int[] arr) {
-        int[] answer = {};
 
         int compNum = -1; // 비교할 숫자
         List<Integer> nums = new ArrayList<Integer>();
@@ -21,11 +20,10 @@ public class IHateSameNum {
             }
         }
 
-        int size = 0;
-        for (int num : nums) {
-            answer[size++] = num;
+        int[] answer = new int[nums.size()];
+        for (int i = 0; i < nums.size(); i++) {
+            answer[i] = nums.get(i);
         }
-
         System.out.println(Arrays.toString(answer));
         return answer;
     }
