@@ -16,7 +16,10 @@ public class SieveOfEratosthenesReview {
             for (int j = i * i; j < n + 1; j += i) arr[j] = 0;
         }// 소수의 배수들을 배열에서 0으로 변경 but 이미 0이라면 continue
 
-
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) answer++;
+        }// 반복문을 배열의 길이만큼 돌면서 0이 아닌 수를 answer에 카운트한다.
+        
         return answer;
     }
 }
