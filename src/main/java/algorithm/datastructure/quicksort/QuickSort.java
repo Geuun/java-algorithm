@@ -1,6 +1,7 @@
 package algorithm.datastructure.quicksort;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class QuickSort {
@@ -13,6 +14,9 @@ public class QuickSort {
         return answer;
     }
     public List<Integer> sort(List<Integer> arr) {
+
+        if (arr.size() <= 1) return arr; // => 재귀 탈출 조건
+
         /**
          * 1. 기준 값 뽑는 로직 구현
          * 2. 기준 값 기준으로 왼쪽 오른쪽으로 나누어 담는 로직 구현
@@ -45,5 +49,6 @@ public class QuickSort {
             al.add(arr[i]);
         }
         qs.sort(al);
+        System.out.println(Arrays.toString(arr));
     }
 }
