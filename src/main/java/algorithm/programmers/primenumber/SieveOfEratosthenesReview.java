@@ -8,7 +8,13 @@ public class SieveOfEratosthenesReview {
         for (int i = 2; i <= n; i++) {
             arr[i] = i;
         }// 2부터 n 까지의 수를 배열에 담기
-        // [2, 3, 4, 5, 6, ..., n-1, n
+        /**
+         * ex n이 10일 때
+         * [2, 3, 4, 5, 6, 7, 8, 9 ,10]
+         */
+
+        System.out.printf("%d %d\n", 0, arr[0]);
+        System.out.printf("%d %d\n", arr.length - 1, arr[arr.length - 1]);
 
 
         for (int i = 2; i * i < n; i++) {
@@ -19,7 +25,7 @@ public class SieveOfEratosthenesReview {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != 0) answer++;
         }// 반복문을 배열의 길이만큼 돌면서 0이 아닌 수를 answer에 카운트한다.
-        
+
         return answer;
     }
 }

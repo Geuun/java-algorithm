@@ -7,16 +7,21 @@ public class BinarySearch {
         int targetNum = 7;
 
         int startIdx = 0;
-        int endIdx = nums.length;
-        int middleIdx = endIdx - startIdx / 2;
+        int endIdx = nums.length - 1;
+        int middleIdx = endIdx + startIdx / 2;
+        int targetIdx = -1;
 
-        if (nums[middleIdx] > targetNum) {
-            startIdx = middleIdx + 1;
-        } else if (nums[middleIdx] < targetNum) {
-            endIdx = middleIdx - 1;
-        } else {
-            System.out.println(middleIdx);
+        while (startIdx <= endIdx) {
+            if (nums[middleIdx] > targetNum) { // 1 - (3) - 6 --- 11
+                endIdx = middleIdx - 1;
+            } else if (nums[middleIdx] < targetNum) {
+                startIdx = middleIdx + 1;
+            } else {
+                System.out.println(middleIdx);
+                targetIdx = middleIdx;
+                break;
+            }
         }
-
+        System.out.println(targetIdx);
     }
 }
