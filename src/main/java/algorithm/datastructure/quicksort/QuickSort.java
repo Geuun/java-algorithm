@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuickSort {
-
-    public static void main(String[] args) {
-        var arr = new int[] {20, 18, 5, 19, 5, 25, 40, 50}; // size = 8
-
+    public List<Integer> sort(List<Integer> arr) {
         /**
          * 1. 기준 값 뽑는 로직 구현
          * 2. 기준 값 기준으로 왼쪽 오른쪽으로 나누어 담는 로직 구현
@@ -25,5 +22,11 @@ public class QuickSort {
 
         System.out.println(left);
         System.out.println(right); // 20, 18, 19, 25, 40 ,50
+
+        return sort(left) + pivot + sort(right); // <-- 재귀 함수로 구현필요
+    }
+
+    public static void main(String[] args) {
+        var arr = new int[] {20, 18, 5, 19, 5, 25, 40, 50}; // size = 8
     }
 }
