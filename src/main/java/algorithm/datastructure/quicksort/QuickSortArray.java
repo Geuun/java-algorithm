@@ -1,5 +1,7 @@
 package algorithm.datastructure.quicksort;
 
+import java.util.Arrays;
+
 /**
  * 1.pivot을 정한다
  * 2.pivot보다 arr[left]가 작으면 leftIdx += 1
@@ -13,20 +15,21 @@ public class QuickSortArray {
         int pivotIdx = arr.length / 2;
         int pivot = arr[arr.length / 2]; // pivot = 40
         System.out.println("pivot: " + pivot);
+        System.out.println("pivotIdx: " + pivotIdx);
 
         int leftIdx = 0;
-        int rightIdx = arr.length;
+        int rightIdx = arr.length - 1;
         int temp;
 
-        while (arr[leftIdx] < pivot) {
-            if (arr[pivotIdx] <= arr[leftIdx]) {
-                
-            }
+        while (arr[leftIdx] < pivot) leftIdx += 1;
+        while (arr[rightIdx] > pivot) rightIdx -= 1;
 
-        }
-
-//        if (arr[leftIdx] <= rightIdx) {
-//
-//        }
+        temp = arr[leftIdx];
+        arr[leftIdx] = arr[rightIdx];
+        arr[rightIdx] = temp;
+        leftIdx += 1;
+        rightIdx += 1;
+        System.out.printf("4:%d 7:%d\n", arr[4], arr[7]);
+        System.out.printf("leftIdx:%d rightIdx:%d\n", leftIdx, rightIdx);
     }
 }
