@@ -16,25 +16,34 @@ public class QuickSortArray {
         arr[rightIdx] = temp;
     }
 
-    static void quickSortArray(int[] arr, int leftIdx, int rightIdx) {
+    public int[] quickSortArray(int[] arr, int startIdx, int endIdx) {
+        int leftIdx = startIdx;
+        int rightIdx = endIdx;
+        int pivotIdx = (startIdx + endIdx) / 2;
+        int pivot = arr[pivotIdx];
+
 
         do {
-            int pivotIdx = arr.length / 2;
-            int pivot = arr[pivotIdx];
-
             while (arr[leftIdx] < pivot) leftIdx++; // arr[leftIdx] 값이 pivot 보다 큰 수 가 나올 때 까지 Idx 증가
             while (arr[rightIdx] > pivot) rightIdx--;// arr[rightIdx] 값이 pivot 보다 작은 수 가 나올 때 까지 Idx 감소
 
             if (leftIdx <= rightIdx) { // leftIdx 보다 right가 크면 교환하기
-                swap(arr, leftIdx++, rightIdx++);
+                swap(arr, leftIdx++, rightIdx--);
             }
         } while (leftIdx <= rightIdx);
 
-        // 재귀호출이 필요하다!
+        // 재귀 호출
+        if(startIdx < rightIdx) quickSortArray(arr, startIdx, rightIdx);
+        if(leftIdx < endIdx) quickSortArray(arr, leftIdx, endIdx);
 
+        return arr;
     }
 
     public static void main(String[] args) {
-        var arr = new int[]{20, 18, 5, 19, 40, 50, 5,25};
+        var arr = new int[]{20, 18, 5, 19, 40, 50, 5, 25};
+
+        QuickSortArray quickSortArray = new QuickSortArray();
+        var result = quickSortArray.quickSortArray(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(result));
     }
 }
