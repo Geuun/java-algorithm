@@ -10,26 +10,31 @@ import java.util.Arrays;
  * 5. 교환 했으면 leftIdx += 1, rightIdx -= 1
  */
 public class QuickSortArray {
-    public static void main(String[] args) {
-        var arr = new int[]{20, 18, 5, 19, 40, 50, 5,25};
-        int pivotIdx = arr.length / 2;
-        int pivot = arr[arr.length / 2]; // pivot = 40
-        System.out.println("pivot: " + pivot);
-        System.out.println("pivotIdx: " + pivotIdx);
-
-        int leftIdx = 0;
-        int rightIdx = arr.length - 1;
-        int temp;
-
-        while (arr[leftIdx] < pivot) leftIdx += 1;
-        while (arr[rightIdx] > pivot) rightIdx -= 1;
-
-        temp = arr[leftIdx];
+    static void swap(int[] arr, int leftIdx, int rightIdx) {
+        int temp = arr[leftIdx];
         arr[leftIdx] = arr[rightIdx];
         arr[rightIdx] = temp;
-        leftIdx += 1;
-        rightIdx += 1;
-        System.out.printf("4:%d 7:%d\n", arr[4], arr[7]);
-        System.out.printf("leftIdx:%d rightIdx:%d\n", leftIdx, rightIdx);
+    }
+
+    static void quickSortArray(int[] arr, int leftIdx, int rightIdx) {
+
+        do {
+            int pivotIdx = arr.length / 2;
+            int pivot = arr[pivotIdx];
+
+            while (arr[leftIdx] < pivot) leftIdx++; // arr[leftIdx] 값이 pivot 보다 큰 수 가 나올 때 까지 Idx 증가
+            while (arr[rightIdx] > pivot) rightIdx--;// arr[rightIdx] 값이 pivot 보다 작은 수 가 나올 때 까지 Idx 감소
+
+            if (leftIdx <= rightIdx) { // leftIdx 보다 right가 크면 교환하기
+                swap(arr, leftIdx++, rightIdx++);
+            }
+        } while (leftIdx <= rightIdx);
+
+        // 재귀호출이 필요하다!
+
+    }
+
+    public static void main(String[] args) {
+        var arr = new int[]{20, 18, 5, 19, 40, 50, 5,25};
     }
 }
