@@ -1,7 +1,10 @@
 package algorithm.basealgorithm.recursionfunction;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ex1 {
-    public void print1To100 (int num) {
+    public static void print1To100 (int num) {
         if (num > 100) {
             return;
         }
@@ -10,8 +13,16 @@ public class ex1 {
         print1To100(num + 1);
     }
 
+    public static int sumList (List<Integer> nums) {
+
+        if(nums.isEmpty()) return 0;
+        return nums.remove(nums.size() - 1) + sumList(nums);
+
+    }
+
     public static void main(String[] args) {
-        ex1 ex = new ex1();
-        ex.print1To100(1);
+        List<Integer> nums = new ArrayList<>(List.of(7, 3, 2, 9));
+//        print1To100(1);
+        System.out.println(sumList(nums));
     }
 }
