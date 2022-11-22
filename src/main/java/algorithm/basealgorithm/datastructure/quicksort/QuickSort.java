@@ -1,4 +1,4 @@
-package algorithm.datastructure.quicksort;
+package algorithm.basealgorithm.datastructure.quicksort;
 
 import java.util.ArrayList;
 import java.util.Arrays;

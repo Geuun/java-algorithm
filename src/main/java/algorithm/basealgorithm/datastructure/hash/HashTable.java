@@ -1,4 +1,4 @@
-package algorithm.datastructure.hash;
+package algorithm.basealgorithm.datastructure.hash;
 
 import java.util.ArrayList;
 import java.util.List;

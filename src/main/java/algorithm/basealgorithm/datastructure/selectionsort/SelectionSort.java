@@ -1,4 +1,4 @@
-package algorithm.datastructure.selectionsort;
+package algorithm.basealgorithm.datastructure.selectionsort;
 
 import java.util.Arrays;
 import java.util.function.BiFunction;

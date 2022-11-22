@@ -1,4 +1,4 @@
-package algorithm.datastructure.BinarySearch;
+package algorithm.basealgorithm.datastructure.BinarySearch;
 
 public class BinarySearch {
 
