@@ -15,6 +15,15 @@ public class C2623 {
         }
     }
 
+    static int getGCDNonRF(int x, int y) {
+        while (y != 0) {
+            int tmp = x % y;
+            x = y;
+            y = tmp;
+        }
+        return x;
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         String[] input = bf.readLine().split(" ");
@@ -22,5 +31,6 @@ public class C2623 {
         int y = Integer.parseInt(input[1]);
 
         System.out.println(gcd(x, y));
+        System.out.println(getGCDNonRF(x, y));
     }
 }
