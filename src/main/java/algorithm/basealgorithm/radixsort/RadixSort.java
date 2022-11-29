@@ -1,8 +1,6 @@
 package algorithm.basealgorithm.radixsort;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Queue;
+import java.util.*;
 
 public class RadixSort {
     static int[] radixSort(int[] arr) {
@@ -27,9 +25,28 @@ public class RadixSort {
         return arr;
     }
 
+    static int[] getDigits(int[] arr) {
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < arr.length; i++) {
+            // 중복제거 하여 자릿수 구하기
+            if (arr[i] == 0) set.add(1);
+            else set.add((int)(Math.log10(arr[i])+1));
+        }
+
+        // 중복 제거된 자릿수를 arr에 담기
+        int[] answer = new int[set.size()];
+        int idx = 0;
+        for (Integer num : set) {
+            answer[idx++] = num;
+        }
+        Arrays.sort(answer); //정렬
+        return answer;
+    }
+
     public static void main(String[] args) {
         int[] arr = new int[]{2, 8, 18, 13, 1, 7, 16, 7, 0, 14};
-        String result = Arrays.toString(radixSort(arr));
+//        String result = Arrays.toString(radixSort(arr));
+        String result = Arrays.toString(getDigits(arr));
         System.out.println(result);
     }
 }
