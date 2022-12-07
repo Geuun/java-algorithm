@@ -18,7 +18,7 @@ public class MakeMoreSpicy {
             int minScoville1 = heap.poll();
             int minScoville2 = heap.poll();
 
-            heap.add(minScoville1 + minScoville2 * 2);
+            heap.add(minScoville1 + (minScoville2 * 2));
             answer++;
 
             // Limit K
@@ -40,19 +40,5 @@ public class MakeMoreSpicy {
         MakeMoreSpicy makeMoreSpicy = new MakeMoreSpicy();
         //5 -> 11 (2)
         System.out.println(makeMoreSpicy.solution(new int[]{1, 2, 3, 9, 10, 12}, 7));
-        // (0)
-        System.out.println(makeMoreSpicy.solution(new int[]{7, 7, 7, 7, 7, 7, 7}, 7));
-        // 5-> 9-> 17 (-1)
-        System.out.println(makeMoreSpicy.solution(new int[]{1, 2, 2, 4}, 28));
-        // 3-> 5-> 9-> 13 (4)
-        System.out.println(makeMoreSpicy.solution(new int[]{1, 2, 1, 7, 5, 6, 1, 2}, 11));
-        // 0
-        System.out.println(makeMoreSpicy.solution(new int[]{7}, 7));
-        // -1
-        System.out.println(makeMoreSpicy.solution(new int[]{1}, 7));
-        // -1
-        System.out.println(makeMoreSpicy.solution(new int[]{}, 7));
-        //3->5->7: 3번
-        System.out.println(makeMoreSpicy.solution(new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1}, 7));
     }
 }
